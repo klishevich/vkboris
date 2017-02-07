@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require loader_nav808920960411_0
+//= require common
+//= require lang0_0
+//= require px
+//= require index
+//= require ui_controls
+//= require ui_common
+//= require audioplayer
 //= require turbolinks
-//= require_tree .
