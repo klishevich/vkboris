@@ -1,0 +1,21 @@
+<h1>All People</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Login</th>
+      <th>Password</th>
+      <th>Update Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+    <tr>
+      <td><%= person.id %></td>
+      <td><%= person.login %></td>
+      <td><%= person.password %></td>
+      <td><%= person.updated_at.strftime('%d.%m.%Y %T') %></td>
+    </tr>
+    <% end %>                          
+  </tbody>
+</table>

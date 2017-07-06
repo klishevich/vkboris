@@ -21,3 +21,4 @@
 //= require ui_common
 //= require audioplayer
 //= require turbolinks
+//= require bootstrap
