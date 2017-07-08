@@ -13,7 +13,7 @@ class PeopleController < ApplicationController
       flash[:notice] = t(:person_saved_successfuly)
       redirect_to people_path
     else
-      render 'new'
+      render 'static_pages/home'
     end  
   end
 
